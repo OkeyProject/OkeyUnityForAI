@@ -20,8 +20,8 @@ public class PlayerHandler{
 		return players[playerID].GetCard();
 	}
 
-	public void PlayerThrow(int playerID){
-		players[playerID].ThrowCard();
+	public void PlayerThrow(int playerID, Card card){
+		players[playerID].ThrowCard(card);
 	}
 
 	public void Deal(Card card){

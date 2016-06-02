@@ -15,7 +15,7 @@ public abstract class Player {
 		return false;
 	}
 
-	public virtual void ThrowCard(){
+	public virtual void ThrowCard(Card card){
 		Debug.Log ("Throw");
 	}
 

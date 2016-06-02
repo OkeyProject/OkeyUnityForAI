@@ -13,8 +13,8 @@ public class Player1 : Player{
 		return base.GetCard ();
 	}
 
-	public override void ThrowCard ()
+	public override void ThrowCard (Card card)
 	{
-		base.ThrowCard ();
+		base.ThrowCard (card);
 	}
 }

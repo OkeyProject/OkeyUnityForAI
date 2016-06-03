@@ -37,6 +37,8 @@ public class CardStack {
 	public Card draw() {
 		if (size < 0) {
 			Debug.LogError ("CardStack Empty");
+			Card tmp = new Card (0, Color.white);
+			return tmp;
 		} else {
 			size = size - 1;
 			return cardStack[size];

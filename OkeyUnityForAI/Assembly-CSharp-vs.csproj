@@ -46,8 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Lib\DECK.cs" />
      <Compile Include="Assets\Script\Lib\HAND.cs" />
+     <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\Player1.cs" />
+     <Compile Include="Assets\Script\PlayerHandler.cs" />
+     <Compile Include="Assets\Script\card.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

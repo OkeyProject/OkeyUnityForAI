@@ -5,10 +5,17 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	private int currentPlayer = 0;
-	private bool DRAW = false;
-	private bool TAKE = true;
 	// Use this for initialization
 	void Start () {
+		StartCoroutine(Game());
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+	IEnumerator Game(){
 		currentPlayer = 0;
 		CardStack cardStack = new CardStack();
 		PlayerHandler playerhandler = new PlayerHandler();
@@ -16,14 +23,16 @@ public class GameManager : MonoBehaviour {
 			playerhandler.Deal(cardStack.draw());	
 		}
 		for(int i=0; i<4; i++){
-			playerhandler.Show(i);
+			//playerhandler.Show(i);
+			playerhandler.ShowObject(i);
 		}
-
+			
 		while(true){
+			yield return new WaitForSeconds(1f);
 			bool getType = playerhandler.PlayerGet(currentPlayer%4);
 			Card got;
 
-			if (getType == DRAW){
+			if (getType == HAND.DRAW){
 				got = cardStack.draw();
 			} else{
 				got = new Card(0, Color.white);
@@ -35,12 +44,6 @@ public class GameManager : MonoBehaviour {
 
 			if(currentPlayer > 10)
 				break;
-
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

@@ -2,6 +2,9 @@
 using System.Collections;
 
 public static class HAND {
+	public static bool DRAW = false;
+	public static bool TAKE = true;
+
 	public static Vector3 CARD_SCALE {get{return new Vector3(0.25f, 0.05f, 0.375f);}}
 
 	public static Vector3[,] CARD_POS1 {	
@@ -48,16 +51,16 @@ public static class HAND {
 		}
 	}
 
-	public static Vector3 CARD_ROTATION_POSITIVE1 {get{return new Vector3(270, 180, 0);}}
-	public static Vector3 CARD_ROTATION_NEGETIVE1 {get{return new Vector3(270, 0, 0);}}
+	public static Quaternion CARD_ROTATION_POSITIVE1 {get{return Quaternion.Euler (new Vector3(270, 180, 0));}}
+	public static Quaternion CARD_ROTATION_NEGETIVE1 {get{return Quaternion.Euler (new Vector3(270, 0, 0));}}
 
-	public static Vector3 CARD_ROTATION_POSITIVE2 {get{return new Vector3(0, 270, 270);}}
-	public static Vector3 CARD_ROTATION_NEGETIVE2 {get{return new Vector3(0, 270, 90);}}
+	public static Quaternion CARD_ROTATION_POSITIVE2 {get{return Quaternion.Euler (new Vector3(0, 270, 270));}}
+	public static Quaternion CARD_ROTATION_NEGETIVE2 {get{return Quaternion.Euler (new Vector3(0, 270, 90));}}
 
-	public static Vector3 CARD_ROTATION_POSITIVE3 {get{return new Vector3(90, 0, 0);}}
-	public static Vector3 CARD_ROTATION_NEGETIVE3 {get{return new Vector3(90, 180, 0);}}
+	public static Quaternion CARD_ROTATION_POSITIVE3 {get{return Quaternion.Euler (new Vector3(90, 0, 0));}}
+	public static Quaternion CARD_ROTATION_NEGETIVE3 {get{return Quaternion.Euler (new Vector3(90, 180, 0));}}
 
-	public static Vector3 CARD_ROTATION_POSITIVE4 {get{return new Vector3(0, 90, 90);}}
-	public static Vector3 CARD_ROTATION_NEGETIVE4 {get{return new Vector3(0, 90, 270);}}
+	public static Quaternion CARD_ROTATION_POSITIVE4 {get{return Quaternion.Euler (new Vector3(0, 90, 90));}}
+	public static Quaternion CARD_ROTATION_NEGETIVE4 {get{return Quaternion.Euler (new Vector3(0, 90, 270));}}
 
 }

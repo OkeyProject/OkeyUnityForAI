@@ -9,9 +9,10 @@ public class PlayerHandler{
 		players = new Player[4];
 		dealOrder = 0;
 
-		for(int i =0; i< 4; i++)
+		for(int i =0; i< 4; i++){
 			players[i] = new Player1();
-
+			players[i].SetID(i);
+		}
 	}
 
 
@@ -21,7 +22,14 @@ public class PlayerHandler{
 	}
 
 	public void PlayerThrow(int playerID, Card card){
-		players[playerID].ThrowCard(card);
+		Card[,] newHand = players[playerID].ThrowCard(card);
+		//Debug.LogWarning(newHand[0,0].number);
+
+		if(!players[playerID].ThrowCheck(newHand, card)){
+			Debug.LogError("Illegal Throw");
+		} else{
+			players[playerID].ShowView();
+		}
 	}
 
 	public void Deal(Card card){
@@ -34,5 +42,9 @@ public class PlayerHandler{
 
 	public void Show(int playerID){
 		players[playerID].DebugShow();
+	}
+
+	public void ShowObject(int playerID){
+		players[playerID].ShowView();
 	}
 }

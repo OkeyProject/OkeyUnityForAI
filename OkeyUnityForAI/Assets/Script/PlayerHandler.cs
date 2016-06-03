@@ -17,8 +17,8 @@ public class PlayerHandler{
 
 
 
-	public bool PlayerGet(int playerID){
-		return players[playerID].GetCard();
+	public bool PlayerGet(int playerID, Card card){
+		return players[playerID].GetCard(card);
 	}
 
 	public void PlayerThrow(int playerID, Card card){

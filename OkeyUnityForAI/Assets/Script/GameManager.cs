@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 
 public class GameManager : MonoBehaviour {
@@ -28,22 +28,30 @@ public class GameManager : MonoBehaviour {
 		}
 			
 		while(true){
-			yield return new WaitForSeconds(1f);
-			bool getType = playerhandler.PlayerGet(currentPlayer%4);
+			yield return new WaitForSeconds(0.5f);
+			bool getType = playerhandler.PlayerGet(currentPlayer%4, Discard.PreviousDiscard(currentPlayer%4));
 			Card got;
 
 			if (getType == HAND.DRAW){
 				got = cardStack.draw();
+				Debug.Log("Drawed: "+got.number+" "+got.ColorToString());
+				if (got.number == 0){
+					Debug.Log("Game Over!!!");
+					break;
+				}
 			} else{
-				got = new Card(0, Color.white);
+				got = Discard.Take(currentPlayer%4);
 			}
 
 			playerhandler.PlayerThrow(currentPlayer%4, got);
 
+			View.ShowDiscard(currentPlayer%4);
+			Discard.ShowDebug();
+
 			currentPlayer += 1;
 
-			if(currentPlayer > 10)
-				break;
+			//if(currentPlayer > 10)
+			//	break;
 		}
 	}
 }

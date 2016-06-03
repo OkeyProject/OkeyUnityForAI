@@ -10,6 +10,7 @@ public abstract class Player {
 
 	protected Player(){
 		hand = new Card[2, 12];
+		previous = new Card[2,12];
 		//Debug.Log ("player created");
 	}
 
@@ -17,16 +18,15 @@ public abstract class Player {
 		this.id = id;
 	}
 
-	public virtual bool GetCard(){
+	public virtual bool GetCard(Card card){
 		//Debug.Log ("Get");
 		return HAND.DRAW;
 	}
 
 	public virtual Card[,] ThrowCard(Card card){
 		//Debug.Log ("Throw");
-		Card[,] newhand = hand;
-		newhand[0,0] = card;
-		return newhand;
+		hand[0,0] = card;
+		return hand;
 	}
 
 	public void Deal(int order, Card card){
@@ -36,7 +36,8 @@ public abstract class Player {
 		} else {
 			hand[1, order-12] = card;
 		}
-		previous = hand;
+
+		previous = (Card[,])hand.Clone();
 	}
 
 	public bool ThrowCheck(Card[,] newhand, Card previousGet){ 
@@ -44,9 +45,13 @@ public abstract class Player {
 		List<Card> oldHand = new List<Card>();
 		List<Card> throwHand = new List<Card>();
 
+		//Debug.Log(previous[0,0].number);
 		oldHand.AddRange(Enumerable.Range(0, 24).Select(i => previous[i/12, i%12]).ToArray());
 		oldHand.Add(previousGet);
 		throwHand.AddRange(Enumerable.Range(0,24).Select(i => newhand[i/12, i%12]).ToArray());
+
+		ThrowDebug(oldHand);
+		ThrowDebug(throwHand);
 
 		if(oldHand.Count != 25){
 			Debug.LogError("Wrong hand length");
@@ -58,14 +63,18 @@ public abstract class Player {
 				Debug.Log("Null");
 			else
 				Debug.Log(a.number+" "+a.ColorToString());*/
-
 			bool flag = true;
 			for(int i=0; i<oldHand.Count; i++){
+				
+				Debug.Log(oldHand[i]);
 				if(a == null && oldHand[i]==null){
 					oldHand.RemoveAt(i);
 					flag = false;
 					break;
-				} else if(a.number == oldHand[i].number && a.color == oldHand[i].color){
+				}
+				else if(oldHand[i] == null || a == null){
+					continue;
+				} else if( a.number == oldHand[i].number && a.color == oldHand[i].color){
 					oldHand.RemoveAt(i);
 					flag = false;
 					break;
@@ -84,7 +93,9 @@ public abstract class Player {
 			return false;
 		}
 
-		hand = newhand;
+		Discard.ThrowCard(this.id, oldHand[0]);
+		hand = (Card[,])newhand.Clone();
+		previous = (Card[,])hand.Clone();
 		Debug.Log("Remain: "+oldHand[0].number+" "+oldHand[0].ColorToString());
 		return true;
 	}
@@ -106,5 +117,17 @@ public abstract class Player {
 	public void ShowView(){
 		View.ShowView(this.id, hand);
 
+	}
+
+	public void ThrowDebug(List<Card> hand){
+		string str = "";
+		foreach(Card a in hand){
+			if(a == null)
+				str += " null ";
+			else
+				str += "("+a.number+" "+a.ColorToString()+")";
+		}
+
+		Debug.Log(str);
 	}
 }

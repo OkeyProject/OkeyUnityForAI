@@ -41,7 +41,7 @@ public class CardStack {
 			size--;
 			return cardStack[size];
 		}
-		return cardStack[0];
+		return new Card(0, Color.white);
 	}
 
 }

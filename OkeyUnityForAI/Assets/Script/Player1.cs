@@ -7,10 +7,10 @@ public class Player1 : Player{
 		//Debug.Log("Player1 create");
 	}
 
-	public override bool GetCard ()
+	public override bool GetCard (Card card)
 	{
 		//Debug.Log("Player1");
-		return base.GetCard ();
+		return base.GetCard (card);
 	}
 
 	public override Card[,] ThrowCard (Card card)

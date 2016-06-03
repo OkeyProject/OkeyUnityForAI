@@ -35,13 +35,13 @@ public class CardStack {
 	}
 
 	public Card draw() {
-		if (size <= 0) {
+		if (size < 0) {
 			Debug.LogError ("CardStack Empty");
 		} else {
-			size--;
+			size = size - 1;
 			return cardStack[size];
 		}
-		return cardStack[0];
+		//return cardStack[0];
 	}
 
 }

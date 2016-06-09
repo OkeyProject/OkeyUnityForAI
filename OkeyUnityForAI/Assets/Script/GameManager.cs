@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour {
 
 			if (getType == HAND.DRAW){
 				got = cardStack.draw();
-				Debug.Log("Drawed: "+got.number+" "+got.ColorToString());
+				//Debug.Log("Drawed: "+got.number+" "+got.ColorToString());
 				if (got.number == 0){
 					Debug.Log("Game Over!!!");
 					break;

@@ -80,6 +80,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_OSX
 'Assets/Script/CardStack.cs'
+'Assets/Script/Discard.cs'
 'Assets/Script/GameManager.cs'
 'Assets/Script/Lib/DECK.cs'
 'Assets/Script/Lib/HAND.cs'

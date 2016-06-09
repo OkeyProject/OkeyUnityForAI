@@ -24,7 +24,7 @@ public abstract class Player {
 	}
 
 	public virtual Card[,] ThrowCard(Card card){
-		//Debug.Log ("Throw");
+		Debug.Log ("WTFlalalalalallal");
 		hand[0,0] = card;
 		return hand;
 	}
@@ -66,7 +66,7 @@ public abstract class Player {
 			bool flag = true;
 			for(int i=0; i<oldHand.Count; i++){
 				
-				Debug.Log(oldHand[i]);
+//				Debug.Log(oldHand[i]);
 				if(a == null && oldHand[i]==null){
 					oldHand.RemoveAt(i);
 					flag = false;
@@ -96,7 +96,7 @@ public abstract class Player {
 		Discard.ThrowCard(this.id, oldHand[0]);
 		hand = (Card[,])newhand.Clone();
 		previous = (Card[,])hand.Clone();
-		Debug.Log("Remain: "+oldHand[0].number+" "+oldHand[0].ColorToString());
+		//Debug.Log("Remain: "+oldHand[0].number+" "+oldHand[0].ColorToString());
 		return true;
 	}
 
@@ -111,7 +111,7 @@ public abstract class Player {
 				}
 			}
 		}
-		Debug.Log(str);
+		//Debug.Log(str);
 	}
 
 	public void ShowView(){
@@ -128,6 +128,6 @@ public abstract class Player {
 				str += "("+a.number+" "+a.ColorToString()+")";
 		}
 
-		Debug.Log(str);
+		//Debug.Log(str);
 	}
 }

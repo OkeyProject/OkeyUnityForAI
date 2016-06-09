@@ -64,6 +64,6 @@ public static class Discard {
 			str += "\n";
 		}
 
-		Debug.Log(str);
+		//Debug.Log(str);
 	}
 }

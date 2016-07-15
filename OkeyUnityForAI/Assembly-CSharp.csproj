@@ -45,9 +45,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CardStack.cs" />
+     <Compile Include="Assets\Script\CardStack.cs" />
+     <Compile Include="Assets\Script\Discard.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Lib\DECK.cs" />
      <Compile Include="Assets\Script\Lib\HAND.cs" />
+     <Compile Include="Assets\Script\Lib\Player2.cs" />
+     <Compile Include="Assets\Script\Lib\Player4.cs" />
+     <Compile Include="Assets\Script\Player.cs" />
+     <Compile Include="Assets\Script\Player1.cs" />
+     <Compile Include="Assets\Script\Player10.cs" />
+     <Compile Include="Assets\Script\Player100.cs" />
+     <Compile Include="Assets\Script\Player11.cs" />
+     <Compile Include="Assets\Script\Player3.cs" />
+     <Compile Include="Assets\Script\PlayerHandler.cs" />
+     <Compile Include="Assets\Script\View.cs" />
      <Compile Include="Assets\Script\card.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
